@@ -19,7 +19,6 @@ spec:
       app: fuse710-karaf-camel-log
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: fuse710-karaf-camel-log
         deploymentconfig: fuse710-karaf-camel-log
