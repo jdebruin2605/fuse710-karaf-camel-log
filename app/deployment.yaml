@@ -1,165 +1,114 @@
-kind: DeploymentConfig
-apiVersion: apps.openshift.io/v1
+kind: Deployment
+apiVersion: apps/v1
 metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    deployment.kubernetes.io/revision: '1'
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"fuse710-karaf-camel-log:latest","namespace":"karaf-log"},"fieldPath":"spec.template.spec.containers[?(@.name==\"fuse710-karaf-camel-log\")].image","pause":"false"}]
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '299966'
   name: fuse710-karaf-camel-log
-  namespace: test-argo
-  uid: d784fb45-412c-47db-91db-6a9d59016713
-  resourceVersion: '187468'
-  generation: 3
-  creationTimestamp: '2022-02-05T20:31:08Z'
-  labels:
-    app: fuse710-karaf-camel-log
-    group: org.example.fis
-    provider: jkube
-    version: 1.0-SNAPSHOT
+  uid: b1588a7c-d264-409e-91aa-b02cf7ff99d3
+  creationTimestamp: '2022-02-06T11:32:28Z'
+  generation: 1
   managedFields:
-    - manager: okhttp
+    - manager: Mozilla
       operation: Update
-      apiVersion: apps.openshift.io/v1
-      time: '2022-02-05T20:31:08Z'
+      apiVersion: apps/v1
+      time: '2022-02-06T11:32:28Z'
       fieldsType: FieldsV1
       fieldsV1:
         'f:metadata':
-          'f:labels':
+          'f:annotations':
             .: {}
+            'f:alpha.image.policy.openshift.io/resolve-names': {}
+            'f:image.openshift.io/triggers': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            'f:app.openshift.io/runtime': {}
             'f:app': {}
-            'f:group': {}
-            'f:provider': {}
-            'f:version': {}
+            'f:app.kubernetes.io/name': {}
+            .: {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime-version': {}
+            'f:app.openshift.io/runtime-namespace': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/component': {}
         'f:spec':
+          'f:progressDeadlineSeconds': {}
           'f:replicas': {}
           'f:revisionHistoryLimit': {}
-          'f:selector':
-            .: {}
-            'f:app': {}
-            'f:group': {}
-            'f:provider': {}
+          'f:selector': {}
           'f:strategy':
-            'f:activeDeadlineSeconds': {}
-            'f:rollingParams':
+            'f:rollingUpdate':
               .: {}
-              'f:intervalSeconds': {}
               'f:maxSurge': {}
               'f:maxUnavailable': {}
-              'f:timeoutSeconds': {}
-              'f:updatePeriodSeconds': {}
             'f:type': {}
           'f:template':
-            .: {}
             'f:metadata':
-              .: {}
-              'f:creationTimestamp': {}
+              'f:annotations':
+                .: {}
+                'f:openshift.io/generated-by': {}
               'f:labels':
-                'f:version': {}
-                'f:provider': {}
-                'f:group': {}
+                .: {}
                 'f:app': {}
-                .: {}
-                'f:rht.prod_name': {}
-                'f:rht.comp': {}
-                'f:rht.comp_ver': {}
-                'f:com.company': {}
-                'f:rht.prod_ver': {}
+                'f:deploymentconfig': {}
             'f:spec':
-              .: {}
               'f:containers':
-                .: {}
-                'k:{"name":"karaf"}':
-                  'f:image': {}
-                  'f:terminationMessagePolicy': {}
+                'k:{"name":"fuse710-karaf-camel-log"}':
                   .: {}
-                  'f:resources':
-                    .: {}
-                    'f:limits':
-                      .: {}
-                      'f:cpu': {}
-                      'f:memory': {}
-                    'f:requests':
-                      .: {}
-                      'f:cpu': {}
-                      'f:memory': {}
-                  'f:livenessProbe':
-                    .: {}
-                    'f:failureThreshold': {}
-                    'f:httpGet':
-                      .: {}
-                      'f:path': {}
-                      'f:port': {}
-                      'f:scheme': {}
-                    'f:initialDelaySeconds': {}
-                    'f:periodSeconds': {}
-                    'f:successThreshold': {}
-                    'f:timeoutSeconds': {}
-                  'f:env':
-                    .: {}
-                    'k:{"name":"KUBERNETES_NAMESPACE"}':
-                      .: {}
-                      'f:name': {}
-                      'f:valueFrom':
-                        .: {}
-                        'f:fieldRef': {}
-                    'k:{"name":"QUICKSTART_NAME"}':
-                      .: {}
-                      'f:name': {}
-                      'f:value': {}
-                  'f:readinessProbe':
-                    .: {}
-                    'f:failureThreshold': {}
-                    'f:httpGet':
-                      .: {}
-                      'f:path': {}
-                      'f:port': {}
-                      'f:scheme': {}
-                    'f:initialDelaySeconds': {}
-                    'f:periodSeconds': {}
-                    'f:successThreshold': {}
-                    'f:timeoutSeconds': {}
-                  'f:securityContext':
-                    .: {}
-                    'f:privileged': {}
-                  'f:terminationMessagePath': {}
+                  'f:image': {}
                   'f:imagePullPolicy': {}
+                  'f:name': {}
                   'f:ports':
                     .: {}
-                    'k:{"containerPort":8181,"protocol":"TCP"}':
+                    'k:{"containerPort":8080,"protocol":"TCP"}':
                       .: {}
                       'f:containerPort': {}
-                      'f:name': {}
+                      'f:protocol': {}
+                    'k:{"containerPort":8443,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
                       'f:protocol': {}
                     'k:{"containerPort":8778,"protocol":"TCP"}':
                       .: {}
                       'f:containerPort': {}
-                      'f:name': {}
                       'f:protocol': {}
-                  'f:name': {}
+                    'k:{"containerPort":9779,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:resources': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
               'f:dnsPolicy': {}
               'f:restartPolicy': {}
               'f:schedulerName': {}
               'f:securityContext': {}
               'f:terminationGracePeriodSeconds': {}
-    - manager: openshift-controller-manager
+    - manager: kube-controller-manager
       operation: Update
-      apiVersion: apps.openshift.io/v1
-      time: '2022-02-05T20:31:09Z'
+      apiVersion: apps/v1
+      time: '2022-02-06T11:32:30Z'
       fieldsType: FieldsV1
       fieldsV1:
-        'f:spec':
-          'f:triggers': {}
-    - manager: openshift-controller-manager
-      operation: Update
-      apiVersion: apps.openshift.io/v1
-      time: '2022-02-05T20:31:46Z'
-      fieldsType: FieldsV1
-      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
         'f:status':
-          'f:updatedReplicas': {}
-          'f:readyReplicas': {}
+          'f:availableReplicas': {}
           'f:conditions':
+            .: {}
             'k:{"type":"Available"}':
+              .: {}
               'f:lastTransitionTime': {}
               'f:lastUpdateTime': {}
               'f:message': {}
+              'f:reason': {}
               'f:status': {}
+              'f:type': {}
             'k:{"type":"Progressing"}':
               .: {}
               'f:lastTransitionTime': {}
@@ -168,140 +117,82 @@ metadata:
               'f:reason': {}
               'f:status': {}
               'f:type': {}
-          'f:details':
-            .: {}
-            'f:causes': {}
-            'f:message': {}
-          'f:replicas': {}
-          'f:availableReplicas': {}
           'f:observedGeneration': {}
-          'f:unavailableReplicas': {}
-          'f:latestVersion': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
       subresource: status
-spec:
-  strategy:
-    type: Rolling
-    rollingParams:
-      updatePeriodSeconds: 1
-      intervalSeconds: 1
-      timeoutSeconds: 3600
-      maxUnavailable: 25%
-      maxSurge: 25%
-    resources: {}
-    activeDeadlineSeconds: 21600
-  triggers:
-    - type: ConfigChange
-    - type: ImageChange
-      imageChangeParams:
-        automatic: true
-        containerNames:
-          - karaf
-        from:
-          kind: ImageStreamTag
-          namespace: karaf-log
-          name: 'fuse710-karaf-camel-log:latest'
-        lastTriggeredImage: >-
-          image-registry.openshift-image-registry.svc:5000/karaf-log/fuse710-karaf-camel-log@sha256:4afac1d9c3de56e1be72f4e9f88db213da52bd4d209ebef53d108bfef0c8c1b2
-  replicas: 1
-  revisionHistoryLimit: 2
-  test: false
-  selector:
+  namespace: test-argo
+  labels:
     app: fuse710-karaf-camel-log
-    group: org.example.fis
-    provider: jkube
+    app.kubernetes.io/component: fuse710-karaf-camel-log
+    app.kubernetes.io/instance: fuse710-karaf-camel-log
+    app.kubernetes.io/name: fuse710-karaf-camel-log
+    app.kubernetes.io/part-of: fuse710-karaf-camel-log-app
+    app.openshift.io/runtime: fuse710-karaf-camel-log
+    app.openshift.io/runtime-namespace: karaf-log
+    app.openshift.io/runtime-version: latest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fuse710-karaf-camel-log
   template:
     metadata:
       creationTimestamp: null
       labels:
         app: fuse710-karaf-camel-log
-        rht.comp_ver: 7.10.0.fuse-sb2-7_10_0-00014-redhat-00001
-        rht.prod_name: Red_Hat_Integration
-        rht.prod_ver: '7.10'
-        com.company: Red_Hat
-        provider: jkube
-        version: 1.0-SNAPSHOT
-        rht.comp: karaf-camel-log
-        group: org.example.fis
+        deploymentconfig: fuse710-karaf-camel-log
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
     spec:
       containers:
-        - resources:
-            limits:
-              cpu: '1'
-              memory: 512Mi
-            requests:
-              cpu: 200m
-              memory: 128Mi
-          readinessProbe:
-            httpGet:
-              path: /readiness-check
-              port: 8181
-              scheme: HTTP
-            initialDelaySeconds: 10
-            timeoutSeconds: 1
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
-          terminationMessagePath: /dev/termination-log
-          name: karaf
-          livenessProbe:
-            httpGet:
-              path: /health-check
-              port: 8181
-              scheme: HTTP
-            initialDelaySeconds: 180
-            timeoutSeconds: 1
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
-          env:
-            - name: QUICKSTART_NAME
-              value: karaf-camel-log
-            - name: KUBERNETES_NAMESPACE
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.namespace
-          securityContext:
-            privileged: false
-          ports:
-            - name: intermapper
-              containerPort: 8181
-              protocol: TCP
-            - name: jolokia
-              containerPort: 8778
-              protocol: TCP
-          imagePullPolicy: IfNotPresent
-          terminationMessagePolicy: File
+        - name: fuse710-karaf-camel-log
           image: >-
             image-registry.openshift-image-registry.svc:5000/karaf-log/fuse710-karaf-camel-log@sha256:4afac1d9c3de56e1be72f4e9f88db213da52bd4d209ebef53d108bfef0c8c1b2
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 8443
+              protocol: TCP
+            - containerPort: 8778
+              protocol: TCP
+            - containerPort: 9779
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
       securityContext: {}
       schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
 status:
-  observedGeneration: 3
-  details:
-    message: config change
-    causes:
-      - type: ConfigChange
-  availableReplicas: 1
-  unavailableReplicas: 0
-  latestVersion: 1
+  observedGeneration: 1
+  replicas: 1
   updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
   conditions:
     - type: Available
       status: 'True'
-      lastUpdateTime: '2022-02-05T20:31:45Z'
-      lastTransitionTime: '2022-02-05T20:31:45Z'
-      message: Deployment config has minimum availability.
+      lastUpdateTime: '2022-02-06T11:32:30Z'
+      lastTransitionTime: '2022-02-06T11:32:30Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
     - type: Progressing
       status: 'True'
-      lastUpdateTime: '2022-02-05T20:31:46Z'
-      lastTransitionTime: '2022-02-05T20:31:46Z'
-      reason: NewReplicationControllerAvailable
+      lastUpdateTime: '2022-02-06T11:32:30Z'
+      lastTransitionTime: '2022-02-06T11:32:28Z'
+      reason: NewReplicaSetAvailable
       message: >-
-        replication controller "fuse710-karaf-camel-log-1" successfully rolled
-        out
-  replicas: 1
-  readyReplicas: 1
+        ReplicaSet "fuse710-karaf-camel-log-67fc48fdf5" has successfully
+        progressed.
