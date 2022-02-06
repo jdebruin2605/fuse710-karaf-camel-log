@@ -2,7 +2,6 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: fuse710-karaf-camel-log
-  generation: 1  
   namespace: test-argo
   labels:
     app: fuse710-karaf-camel-log
@@ -12,8 +11,7 @@ metadata:
     app.kubernetes.io/part-of: fuse710-karaf-camel-log-app
     app.openshift.io/runtime: fuse710-karaf-camel-log
     app.openshift.io/runtime-namespace: karaf-log
-    app.openshift.io/runtime-version: latest
-    
+    app.openshift.io/runtime-version: latest    
 spec:
   replicas: 1
   selector:
