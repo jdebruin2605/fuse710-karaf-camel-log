@@ -21,9 +21,6 @@ spec:
     metadata:
       labels:
         app: fuse710-karaf-camel-log
-        deploymentconfig: fuse710-karaf-camel-log
-      annotations:
-        openshift.io/generated-by: OpenShiftWebConsole
     spec:
       containers:
         - name: fuse710-karaf-camel-log
