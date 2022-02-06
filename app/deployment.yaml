@@ -1,15 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: '*'
-    deployment.kubernetes.io/revision: '1'
-    image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag","name":"fuse710-karaf-camel-log:latest","namespace":"karaf-log"},"fieldPath":"spec.template.spec.containers[?(@.name==\"fuse710-karaf-camel-log\")].image","pause":"false"}]
-    openshift.io/generated-by: OpenShiftWebConsole
   name: fuse710-karaf-camel-log
-  generation: 1
-
   namespace: test-argo
   labels:
     app: fuse710-karaf-camel-log
