@@ -2,7 +2,7 @@ kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
   name: fuse710-karaf-camel-log
-  namespace: karaf-log
+  namespace: test-argo
   uid: d784fb45-412c-47db-91db-6a9d59016713
   resourceVersion: '187468'
   generation: 3
