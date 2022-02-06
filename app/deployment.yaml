@@ -7,10 +7,7 @@ metadata:
     image.openshift.io/triggers: >-
       [{"from":{"kind":"ImageStreamTag","name":"fuse710-karaf-camel-log:latest","namespace":"karaf-log"},"fieldPath":"spec.template.spec.containers[?(@.name==\"fuse710-karaf-camel-log\")].image","pause":"false"}]
     openshift.io/generated-by: OpenShiftWebConsole
-  resourceVersion: '299966'
   name: fuse710-karaf-camel-log
-  uid: b1588a7c-d264-409e-91aa-b02cf7ff99d3
-  creationTimestamp: '2022-02-06T11:32:28Z'
   generation: 1
 
   namespace: test-argo
