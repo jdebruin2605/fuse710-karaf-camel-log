@@ -29,7 +29,7 @@ spec:
       containers:
         - name: fuse710-karaf-camel-log
           image: >-
-            image-registry.openshift-image-registry.svc:5000/karaf-log/fuse710-karaf-camel-log:latest
+            image-registry.openshift-image-registry.svc:5000/test-argo/fuse710-karaf-camel-log:latest
           ports:
             - containerPort: 8080
               protocol: TCP
