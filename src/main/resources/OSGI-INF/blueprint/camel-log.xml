@@ -47,7 +47,7 @@
         <route id="log-route">
           <from id="message-timer" uri="timer:foo?period=1s"/>
             <setBody id="set-message">
-                <simple>Gewoon image pushen</simple>
+                <simple>Ik heb de image gepushed</simple>
             </setBody>
             <log id="log-message" message=">>> ${body} : ${id}"/>
         </route>
